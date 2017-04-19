@@ -29,13 +29,15 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
-			$this->col[] = ["label"=>"Product","name"=>"id_product","join"=>"products,name"];
+			$this->col[] = ["label"=>"Waybills","name"=>"id_waybills","join"=>"waybills,id"];
+			$this->col[] = ["label"=>"Products","name"=>"id_products","join"=>"products,name"];
 			$this->col[] = ["label"=>"Price","name"=>"price"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
 			$this->form = [];
-			$this->form[] = ["label"=>"Product","name"=>"id_product","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"products,name"];
+			$this->form[] = ["label"=>"Waybills","name"=>"id_waybills","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"waybills,id"];
+			$this->form[] = ["label"=>"Products","name"=>"id_products","type"=>"select2","validation"=>"required|integer|min:0","width"=>"col-sm-10","datatable"=>"products,name"];
 			$this->form[] = ["label"=>"Price","name"=>"price","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
 			# END FORM DO NOT REMOVE THIS LINE
 

@@ -5,41 +5,42 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminProductsController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminCustomersController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function __construct() {
-	    	# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->table               = "products";	        
-			$this->title_field         = "name";
-			$this->limit               = 20;
-			$this->orderby             = "id,desc";
-			$this->global_privilege    = FALSE;	        
-			$this->button_table_action = TRUE;   
-			$this->button_action_style = "button_icon";     
-			$this->button_add          = TRUE;
-			$this->button_delete       = TRUE;
-			$this->button_edit         = TRUE;
-			$this->button_detail       = TRUE;
-			$this->button_show         = TRUE;
-			$this->button_filter       = TRUE;        
-			$this->button_export       = FALSE;	        
-			$this->button_import       = FALSE;	
-			# END CONFIGURATION DO NOT REMOVE THIS LINE						      
+
+			# START CONFIGURATION DO NOT REMOVE THIS LINE
+			$this->title_field = "name";
+			$this->limit = "20";
+			$this->orderby = "id,desc";
+			$this->global_privilege = false;
+			$this->button_table_action = true;
+			$this->button_action_style = "button_icon";
+			$this->button_add = true;
+			$this->button_edit = true;
+			$this->button_delete = true;
+			$this->button_detail = true;
+			$this->button_show = true;
+			$this->button_filter = true;
+			$this->button_import = false;
+			$this->button_export = false;
+			$this->table = "customers";
+			# END CONFIGURATION DO NOT REMOVE THIS LINE
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
-	        $this->col = array();
-			$this->col[] = array("label"=>"Name","name"=>"name" );
-		$this->col[] = array("label"=>"Code","name"=>"code" );
-		$this->col[] = array("label"=>"Price","name"=>"price" );
-
+			$this->col = [];
+			$this->col[] = ["label"=>"Name","name"=>"name"];
+			$this->col[] = ["label"=>"Address","name"=>"address"];
+			$this->col[] = ["label"=>"Contact Number","name"=>"contact_number"];
+			$this->col[] = ["label"=>"Created At","name"=>"created_at"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
-			# START FORM DO NOT REMOVE THIS LINE
-		$this->form = array();
-		$this->form[] = array("label"=>"Name","name"=>"name","type"=>"text","required"=>TRUE,"validation"=>"required|string|min:3|max:70","placeholder"=>"You can only enter the letter only");
-		$this->form[] = array("label"=>"Code","name"=>"code","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Price","name"=>"price","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
 
-			# END FORM DO NOT REMOVE THIS LINE     
+			# START FORM DO NOT REMOVE THIS LINE
+			$this->form = [];
+			$this->form[] = ["label"=>"Name","name"=>"name","type"=>"text","validation"=>"required|string|min:3|max:70","width"=>"col-sm-10","placeholder"=>"You can only enter the letter only"];
+			$this->form[] = ["label"=>"Address","name"=>"address","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			$this->form[] = ["label"=>"Contact Number","name"=>"contact_number","type"=>"text","validation"=>"required|min:3|max:255","width"=>"col-sm-10"];
+			# END FORM DO NOT REMOVE THIS LINE
 
 			/* 
 	        | ---------------------------------------------------------------------- 

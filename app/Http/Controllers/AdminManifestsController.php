@@ -5,12 +5,12 @@
 	use DB;
 	use CRUDBooster;
 
-	class AdminProductsController extends \crocodicstudio\crudbooster\controllers\CBController {
+	class AdminManifestsController extends \crocodicstudio\crudbooster\controllers\CBController {
 
 	    public function __construct() {
 	    	# START CONFIGURATION DO NOT REMOVE THIS LINE
-			$this->table               = "products";	        
-			$this->title_field         = "name";
+			$this->table               = "manifests";	        
+			$this->title_field         = "id";
 			$this->limit               = 20;
 			$this->orderby             = "id,desc";
 			$this->global_privilege    = FALSE;	        
@@ -28,16 +28,18 @@
 
 			# START COLUMNS DO NOT REMOVE THIS LINE
 	        $this->col = array();
-			$this->col[] = array("label"=>"Name","name"=>"name" );
-		$this->col[] = array("label"=>"Code","name"=>"code" );
-		$this->col[] = array("label"=>"Price","name"=>"price" );
+			$this->col[] = array("label"=>"Trucks","name"=>"id_trucks","join"=>"trucks,id");
+		$this->col[] = array("label"=>"Driver","name"=>"driver" );
+		$this->col[] = array("label"=>"Trip Date","name"=>"trip_date" );
+		$this->col[] = array("label"=>"Status","name"=>"status" );
 
 			# END COLUMNS DO NOT REMOVE THIS LINE
 			# START FORM DO NOT REMOVE THIS LINE
 		$this->form = array();
-		$this->form[] = array("label"=>"Name","name"=>"name","type"=>"text","required"=>TRUE,"validation"=>"required|string|min:3|max:70","placeholder"=>"You can only enter the letter only");
-		$this->form[] = array("label"=>"Code","name"=>"code","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
-		$this->form[] = array("label"=>"Price","name"=>"price","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Trucks","name"=>"id_trucks","type"=>"select2","required"=>TRUE,"validation"=>"required|integer|min:0","datatable"=>"trucks,id");
+		$this->form[] = array("label"=>"Driver","name"=>"driver","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
+		$this->form[] = array("label"=>"Trip Date","name"=>"trip_date","type"=>"date","required"=>TRUE,"validation"=>"required|date");
+		$this->form[] = array("label"=>"Status","name"=>"status","type"=>"text","required"=>TRUE,"validation"=>"required|min:3|max:255");
 
 			# END FORM DO NOT REMOVE THIS LINE     
 
